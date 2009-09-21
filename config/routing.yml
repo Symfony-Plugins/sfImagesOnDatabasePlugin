@@ -1,0 +1,5 @@
+images:
+  url:      /images/:reference.:extension
+  class:    sfDoctrineRoute
+  param:    { module: sfImages, action: show}
+  options:  { model: sfImage, type: object}

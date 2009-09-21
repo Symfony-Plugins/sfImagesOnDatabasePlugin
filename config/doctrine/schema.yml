@@ -1,0 +1,21 @@
+sfImage:
+  columns:
+    reference:
+      type: string(255)
+      unique: true
+      notnull: true
+    extension:
+      type: string(4)
+      notnull: true
+    mime_type:
+      type: string(25)
+      notnull: true
+    content:
+      type: blob
+      notnull: true
+    size:
+      type: string(25)
+      notnull: true
+    last_modified:
+      type: timestamp
+      notnull: true

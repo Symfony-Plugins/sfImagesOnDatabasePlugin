@@ -1,0 +1,78 @@
+sfImagesOnDatabasePlugin
+===============
+
+**WARNING : This plugin is in beta state.**
+
+The `sfImagesOnDatabasePlugin` intends to bring a solution for storing images on database
+using the symfony framework. These images can be subsequently retrieved as normal files
+stored on file system.
+
+Installation
+------------
+
+  * Install the plugin
+
+        $ symfony plugin:install sfImagesOnDatabasePlugin --stability=beta
+
+  * Clear you cache
+
+        $ symfony cc
+
+  * Build model
+
+        $ symfony doctrine:build-model
+
+  * Build form
+
+        $ symfony doctrine:build-form
+
+  * Build filter
+
+        $ symfony doctrine:build-filter
+
+  * Enable sfImages module on your app.
+
+        #app/.../config/settings.yml
+        enabled_modules:        [default, sfImages]
+
+How to use it
+-------------
+
+This plugin don't required other plugins.
+
+It contains mainly 2 classes :
+
+  * `sfImage` :
+  It consists of image stored on database (jpg, png, bmp, other...).
+  * `sfImageTable` :
+  It gives the opportunity to save an image contained in a file in database with an associated name (a reference).
+
+### Store an image
+
+The following code store an image retreived by request with uploaded file.
+This is located in a actions.class.php.
+
+          #app/frontend/modules/.../actions.class.php
+          $this->form = new sfImageForm();
+          $parameters = $request->getParameter($this->form->getName());
+          $files = $request->getFiles($this->form->getName());
+          $this->form->bind($parameters, $files);
+          if ($this->form->isValid())
+          {
+            $image = sfImageTable::newImage($this->form->getValue('reference'), $this->form->getValue('file'));
+            if($image) {
+              $this->redirect($image->getUrl());
+              return;
+            }
+          }
+
+Then you can retrieve the image by the url returned by $image->getUrl() method.
+
+### Done
+
+That's it !
+
+Feedback
+--------
+
+Please provide feedbacks and comments
