@@ -1,4 +1,4 @@
-images:
+sf_images:
   url:      /images/:reference.:extension
   class:    sfDoctrineRoute
   param:    { module: sfImages, action: show}

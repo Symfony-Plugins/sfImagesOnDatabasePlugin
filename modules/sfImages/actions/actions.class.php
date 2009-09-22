@@ -24,5 +24,4 @@ class sfImagesActions extends sfActions
     $this->setLayout(false);
     return sfView::NONE;
   }
-
 }

@@ -45,6 +45,9 @@ abstract class PluginsfImage extends BasesfImage
 
   public function getUrl() {
     sfLoader::loadHelpers('Url');
-    return url_for('sfImages/show?reference='.$this->_get('reference').'&extension='.$this->_get('extension'));
+    $url = url_for('sf_images', $this, false);
+
+    // HOW CAN I REMOVE index.php/ ON PRODUCTION MODE?
+    return preg_replace('/index.php\//', '', $url);
   }
 }

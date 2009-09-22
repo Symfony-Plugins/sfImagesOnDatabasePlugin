@@ -30,7 +30,7 @@ Installation
 
         $ symfony doctrine:build-filter
 
-  * Enable sfImages module on your app.
+  * Enable sfImages module on your app
 
         #app/.../config/settings.yml
         enabled_modules:        [default, sfImages]
@@ -42,15 +42,15 @@ This plugin don't required other plugins.
 
 It contains mainly 2 classes :
 
-  * `sfImage` :
+  * _sfImage_ :
   It consists of image stored on database (jpg, png, bmp, other...).
-  * `sfImageTable` :
+  * _sfImageTable_ :
   It gives the opportunity to save an image contained in a file in database with an associated name (a reference).
 
 ### Store an image
 
 The following code store an image retreived by request with uploaded file.
-This is located in a actions.class.php.
+It is located in a actions.class.php.
 
           #app/frontend/modules/.../actions.class.php
           $this->form = new sfImageForm();
@@ -66,11 +66,9 @@ This is located in a actions.class.php.
             }
           }
 
-Then you can retrieve the image by the url returned by $image->getUrl() method.
+Then you can retrieve the image by the url getted from $image->getUrl(). This is like ``{hostname}/images/{name}.{extension}`` as a normal file!
 
-### Done
-
-That's it !
+Done, That's it !
 
 Feedback
 --------

@@ -24,12 +24,14 @@ abstract class PluginsfImageForm extends BasesfImageForm
     unset($this->widgetSchema['last_modified']);
     unset($this->validatorSchema['last_modified']);
 
-    $this->widgetSchema['reference']->setLabel('Name');
+    $this->widgetSchema['reference'] = new sfWidgetFormInput(array(
+      'label' => 'Name',
+    ));
+    $this->validatorSchema['reference'] = new sfValidatorString(array('max_length' => 255));
 
     $this->widgetSchema['file'] = new sfWidgetFormInputFile(array(
       'label' => 'Image',
     ));
-
     $this->validatorSchema['file'] = new sfValidatorFile(array(
       'required' => true,
     ));

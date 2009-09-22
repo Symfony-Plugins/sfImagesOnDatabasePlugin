@@ -8,7 +8,6 @@ abstract class PluginsfImageTable extends Doctrine_Table
     $image = new sfImage();
     $image->setReference($name);
 
-
     if(!($fileDescr instanceof sfValidatedFile)) {
       if(is_array($fileDescr)) {
         $fileDescr = new sfValidatedFile($fileDescr['name'], $fileDescr['type'], $fileDescr['tmp_name'], $fileDescr['size']);
